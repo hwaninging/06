@@ -1,19 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
-//복사본 
+//실습 3: 여러가지 함수 구현 
 
-void func(int x) 
- {
-     printf("func x is at %p\n", &x); 
-     x = 10;
+//3가지 함수 정의
+int sumTwo(int a, int b)
+{
+    return(a+b);
+} //몸체 
+
+int square(int n) //매개변수 한개
+{
+    return (n*n); //제곱은 없어서 이렇게
 }
 
-int main(int argc, char *argv[]) 
+int get_max(int a, int b)
 {
-    int x;
-    
-    printf("main x is at %p\n", &x);
-    func(x); //변수 넣어줌 : 서로 다른 주소가 찍힘.(아예 다른 존재) 
+    if(a>b)
+      return a;
+    else
+        return b; 
+}
+
+int main(int argc, char *argv[]) {
+  
+  printf("sum two result is %i\n", sumTwo(2,3));
+  printf("square result is %i\n", square(5));
+  printf("getmax result is %i\n", get_max(10,13));
   
   system("PAUSE");	
   return 0;
