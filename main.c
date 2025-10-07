@@ -1,18 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
-//실습 4: Call By Value - 메모리가 전달X, 값만 전달된다. 
+//실습 5: Combination (경우의 수 계산) 
 
-int square(int a) //반환 해주기(제곱한걸 뽑고싶을때) void -> int 
+int factorial(int n) //펙토리얼 함수 완료 
 {
-     return(a*a); //반환 a -> return 
+    int res = 1; //결과를 1로 초기화
+    int i; 
+    for (i=1;i<=n;i++) //for문 구성 
+         res = res*i;
+    
+    return res; 
 }
 
-// main함수 꾸미기 
+int combination(int n, int r)
+{
+    return factorial(n)/factorial(n-r)/factorial(r); 
+} 
+
 int main(int argc, char *argv[]) {
     
-    int a = 2;
-    a = square(a); //값이 2가 복사되어 들어감. (반환: square(a) -> a = square(a) 
-    printf("a=%i\n", a);
+    //변수 선언
+     int n, r;
+     int res;
+     //input data 
+     printf("Input n and r :");
+     scanf("%d %d", &n, &r);
+     
+     //compute combination
+     res = combination(n, r);
+     
+     // print result
+     printf("combination result is :%i\n", res);
 
   
   system("PAUSE");	
